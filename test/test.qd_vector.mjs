@@ -155,6 +155,16 @@ test("pitch 90", () => {
     assert.deepEqual(rM, eM);
 });
 
+test("yaw 90", () => {
+    const rM = qd_vector.M_tolerate(qd_vector.M_yaw(Math.PI/2.0));
+    const eM = [ 
+        [ 1, 0, 0 ], 
+        [ 0, 0, 1 ], 
+        [ 0, -1, 0 ] 
+    ];
+    assert.deepEqual(rM, eM);
+});
+
 /*
 test("will fail", () => {
   throw new Error("fail");
