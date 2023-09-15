@@ -126,6 +126,23 @@ test("inverse", () => {
     assert.deepEqual(qd_vector.MM_product(inv, M), I)
     assert.deepEqual(qd_vector.MM_product(M, inv), I)
     //assert deepEqual(qd_vector.M_)
+});
+
+test("tolerate", () => {
+    assert.deepEqual(qd_vector.M_tolerate(
+        [[0.000001, -0.9999999]]
+    ),
+    [[0, -1]])
+});
+
+test("roll 90", () => {
+    const rM = qd_vector.M_tolerate(qd_vector.M_roll(Math.PI/2.0));
+    const eM = [
+        [0, -1, 0],
+        [1, 0, 0],
+        [0, 0, 1],
+    ];
+    assert.deepEqual(rM, eM);
 })
 
 /*
