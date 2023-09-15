@@ -143,7 +143,17 @@ test("roll 90", () => {
         [0, 0, 1],
     ];
     assert.deepEqual(rM, eM);
-})
+});
+
+test("pitch 90", () => {
+    const rM = qd_vector.M_tolerate(qd_vector.M_pitch(Math.PI/2.0));
+    const eM = [ 
+        [ 0, 0, 1 ], 
+        [ 0, 1, 0 ], 
+        [ -1, 0, 0 ] 
+    ];
+    assert.deepEqual(rM, eM);
+});
 
 /*
 test("will fail", () => {
