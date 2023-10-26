@@ -165,6 +165,20 @@ test("yaw 90", () => {
     assert.deepEqual(rM, eM);
 });
 
+test("v_dot", () => {
+    const v1 = [1,2,3];
+    const v2 = [4,5,6];
+    const v1dotv2 = qd_vector.v_dot(v1, v2)
+    assert.deepEqual(v1dotv2, 32);
+});
+
+test("v_cross", () => {
+    const v1 = [1,2,3];
+    const v2 = [4,5,6];
+    const v1dotv2 = qd_vector.v_cross(v1, v2)
+    assert.deepEqual(v1dotv2, [-3, 6, -3]);
+});
+
 /*
 test("will fail", () => {
   throw new Error("fail");
