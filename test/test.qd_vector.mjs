@@ -179,6 +179,36 @@ test("v_cross", () => {
     assert.deepEqual(v1dotv2, [-3, 6, -3]);
 });
 
+test("M_row_major_order", () => {
+    const M = [
+        [1,2,3],
+        [4,5,6]
+    ];
+    const rme = [1,2,3,4,5,6];
+    const rmc = qd_vector.M_row_major_order(M)
+    assert.deepEqual(rme, rmc);
+});
+
+test("M_column_major_order", () => {
+    const M = [
+        [1,2,3],
+        [4,5,6]
+    ];
+    const rme = [1,4,2,5,3,6];
+    const rmc = qd_vector.M_column_major_order(M)
+    assert.deepEqual(rme, rmc);
+});
+
+test("M_transpose", () => {
+    const M = [
+        [1,2,3],
+        [4,5,6]
+    ];
+    const rme = [[1,4],[2,5],[3,6]];
+    const rmc = qd_vector.M_transpose(M)
+    assert.deepEqual(rme, rmc);
+});
+
 /*
 test("will fail", () => {
   throw new Error("fail");
