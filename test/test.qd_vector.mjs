@@ -209,6 +209,26 @@ test("M_transpose", () => {
     assert.deepEqual(rme, rmc);
 });
 
+test("M_as_list", () => {
+    const M = [
+        [1,2,3],
+        [4,5,6]
+    ];
+    const rme = [1, 2, 3, 4, 5, 6];
+    const rmc = qd_vector.M_as_list(M)
+    assert.deepEqual(rme, rmc);
+});
+
+test("list_as_M", () => {
+    const M = [
+        [1,2,3],
+        [4,5,6]
+    ];
+    const rme = [1, 2, 3, 4, 5, 6];
+    const rmc = qd_vector.list_as_M(rme, 2, 3);
+    assert.deepEqual(M, rmc);
+});
+
 /*
 test("will fail", () => {
   throw new Error("fail");
