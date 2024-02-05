@@ -229,6 +229,43 @@ test("list_as_M", () => {
     assert.deepEqual(M, rmc);
 });
 
+test("affine translation", () => {
+    const v = [1,2,3];
+    const T = [3,2,6];
+    const A = qd_vector.affine3d(null, T);
+    const vT = qd_vector.apply_affine3d(A, v);
+    const expected = [4,4,9];
+    assert.deepEqual(vT, expected);
+});
+
+test("affine rotation", () => {
+    const v = [1,2,3];
+    const T = null;
+    const R = [
+        [0, 1, 0],
+        [1, 0, 0],
+        [0, 0, 1],
+    ];
+    const A = qd_vector.affine3d(R, T);
+    const vT = qd_vector.apply_affine3d(A, v);
+    const expected = [2,1,3];
+    assert.deepEqual(vT, expected);
+});
+
+test("affine both", () => {
+    const v = [1,2,3];
+    const T = [3,2,6];
+    const R = [
+        [0, 1, 0],
+        [1, 0, 0],
+        [0, 0, 1],
+    ];
+    const A = qd_vector.affine3d(R, T);
+    const vT = qd_vector.apply_affine3d(A, v);
+    const expected = [5,3,9];
+    assert.deepEqual(vT, expected);
+});
+
 /*
 test("will fail", () => {
   throw new Error("fail");
