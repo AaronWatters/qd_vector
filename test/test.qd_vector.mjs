@@ -19,13 +19,20 @@ test("v_add", () => {
     const v2 = [4,-5,6];
     const sum = [5,-3,3];
     assert.deepEqual(qd_vector.v_add(v1, v2), sum);
-})
+});
 
 test("v_scale", () => {
     const v = [1,2,-3];
     const s = 2;
     const sv = [2,4,-6];
     assert.deepEqual(qd_vector.v_scale(s, v), sv);
+});
+
+test("v_sub", () => {
+    const v1 = [1,2,-3];
+    const v2 = [4,-5,6];
+    const diff = [-3,7,-9];
+    assert.deepEqual(qd_vector.v_sub(v1, v2), diff);
 })
 
 test("zero matrix", () => {
