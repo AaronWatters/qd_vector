@@ -47,6 +47,20 @@ test("v_sub", () => {
     const v2 = [4,-5,6];
     const diff = [-3,7,-9];
     assert.deepEqual(qd_vector.v_sub(v1, v2), diff);
+});
+
+test("v_length", () => {
+    const v = [4,3];
+    const ln = qd_vector.v_length(v);
+    assert.deepEqual(ln, 5);
+});
+
+test("v_normalize", () => {
+    const v = [4,3];
+    const n = [4/5, 3/5];
+    const n2 = qd_vector.v_normalize(v);
+    const d = qd_vector.v_sub(n, n2);
+    assert.deepEqual(qd_vector.M_tolerate([d]), [[0,0]]);
 })
 
 test("zero matrix", () => {
