@@ -21,6 +21,20 @@ test("v_add", () => {
     assert.deepEqual(qd_vector.v_add(v1, v2), sum);
 });
 
+test("v_minimum", () => {
+    const v1 = [1,2,-3];
+    const v2 = [4,-5,6];
+    const mn = [1,-5,-3];
+    assert.deepEqual(qd_vector.v_minimum(v1, v2), mn);
+});
+
+test("v_maximum", () => {
+    const v1 = [1,2,-3];
+    const v2 = [4,-5,6];
+    const mx = [4,2,6];
+    assert.deepEqual(qd_vector.v_maximum(v1, v2), mx);
+});
+
 test("v_scale", () => {
     const v = [1,2,-3];
     const s = 2;
